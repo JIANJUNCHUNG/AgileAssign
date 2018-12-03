@@ -77,6 +77,7 @@ public class StaffSalesOrder extends javax.swing.JFrame {
         //SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
         //jTextField1.setText(sf.format(date));
         jTextField1.setText("1/12/18");
+        //
     }
 
     /**
