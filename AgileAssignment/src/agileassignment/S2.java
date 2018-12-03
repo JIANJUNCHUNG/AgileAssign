@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Gin-1
+ * @author Gin
  */
 public class S2 extends javax.swing.JFrame {
 
