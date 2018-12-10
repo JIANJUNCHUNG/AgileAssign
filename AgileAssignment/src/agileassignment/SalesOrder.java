@@ -5,6 +5,7 @@
  */
 package agileassignment;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author yipki
  */
 public class SalesOrder extends javax.swing.JFrame {
-
+    double sum = 0;
     
 
     /**
@@ -22,9 +23,10 @@ public class SalesOrder extends javax.swing.JFrame {
         initComponents();
         //autoDisplay();
     }
-    public void setTransaction(String tran){
+    public void setTransfer(String tran){
             
             this.jTextField1.setText(tran);
+            //this.jtfname.setText(custname);
             autoDisplay();
     }
     public String getTransaction() {
@@ -35,18 +37,35 @@ public class SalesOrder extends javax.swing.JFrame {
         DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
         
         if(jTextField1.getText().equals("OD00001") ){
-        String jtfno = "ABC00001" ;
-        String jtfprice = "8" ;
-        String jtfqty = "2" ;
-        String jtftotal = "16" ;
-        String jtfdate = "1/12/2018" ;
-        String jtftime = "14:00" ;
-        jtfaddress.setText("pv20 , jalan danau saujana , 32200 , Kuala Lumpur"); 
-        jtfamount.setText("16");
-        jtfname.setText("Tan Hoi xin");
+         
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        ArrayList<Order> list = OrderList();
+        Object rowData[] = new Object[7];
+        double totalPrice = 0;
         
-        dtm.addRow(new String[] { jtfno, jtfprice, jtfqty , jtftotal , jtfdate , jtftime });
+        sum = 0;
+        model.setRowCount(0);
+        
+        for(int i=0; i<list.size(); i++){
+            
+                totalPrice = list.get(i).flowerprice * list.get(i).flowerqty;
+                
+                rowData[0] = list.get(i).flowerno;
+                rowData[1] = list.get(i).flowerprice;
+                rowData[2] = list.get(i).flowerqty;
+                rowData[3] = totalPrice;
+                rowData[4] = list.get(i).flowerdate;
+                rowData[5] = list.get(i).flowertime;
+                rowData[6] = totalPrice;
+                
+                sum += totalPrice;
+                model.addRow(rowData);
+           // }
         }
+        jtfamount.setText(String.format("%.2f",sum));
+            
+        }
+        /*
         else if(jTextField1.getText().equals("OD00002")){
             
         
@@ -63,9 +82,49 @@ public class SalesOrder extends javax.swing.JFrame {
         
         dtm.addRow(new String[] { jtfno, jtfprice, jtfqty , jtftotal , jtfdate , jtftime });
         }
+        */
+    }
+    
+    public class Order{
+        public String flowerno;
+        public double flowerprice;
+        public int flowerqty;
+       // public String flowertotal;
+        public String flowerdate;
+        public String flowertime;
+       
+        
+        public Order(String flowerno , double flowerprice , int flowerqty  , String flowerdate , String flowertime){
+            this.flowerno = flowerno;
+            this.flowerprice = flowerprice;
+            this.flowerqty = flowerqty;
+          //  this.flowertotal = flowertotal;
+            this.flowerdate = flowerdate;
+            this.flowertime = flowertime;
+        }
     }
      
-
+    
+    public ArrayList OrderList(){
+        ArrayList<Order> list = new ArrayList<Order>();
+        Order O1 = new Order("ABC001",16.0,1, "01/12/2018","13:00");
+        Order O2 = new Order("ABC002",12.0,2, "01/12/2018","13:00");
+        Order O3 = new Order("ABC003",14.0,3, "02/12/2018","13:00");
+        Order O4 = new Order("ABC004",16.0,4, "02/12/2018","13:00");
+        Order O5 = new Order("ABC005",12.0,5, "03/12/2018","13:00");
+        Order O6 = new Order("ABC006",14.0,6, "03/12/2018","13:00");
+        
+        
+        list.add(O1);
+        list.add(O2);
+        list.add(O3);
+        list.add(O4);
+        list.add(O5);
+        list.add(O6);
+        return list;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,11 +158,11 @@ public class SalesOrder extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FlowerNo", "Price", "Qty", "Total", "Date", "Time"
+                "FlowerNo", "Price", "Qty", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -116,15 +175,13 @@ public class SalesOrder extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jLabel1.setText("Transaction No  :");
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 255, 255));
-        jTextField1.setText("OD00001");
+        jTextField1.setText("??");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -134,7 +191,7 @@ public class SalesOrder extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Sales Order");
 
-        jLabel3.setText("Address");
+        jLabel3.setText("PICK UP OR DELIVERY");
 
         jtfaddress.setEditable(false);
         jtfaddress.setBackground(new java.awt.Color(204, 255, 255));
@@ -147,7 +204,6 @@ public class SalesOrder extends javax.swing.JFrame {
         jLabel4.setText("Total Amount (RM)");
 
         jtfamount.setEditable(false);
-        jtfamount.setBackground(new java.awt.Color(240, 240, 240));
         jtfamount.setText("$$");
         jtfamount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,9 +240,9 @@ public class SalesOrder extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                                     .addComponent(jtfname))
-                                .addGap(147, 147, 147)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel3)
+                                .addGap(30, 30, 30)
                                 .addComponent(jtfaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())

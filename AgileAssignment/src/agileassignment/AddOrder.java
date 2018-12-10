@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CustomerC;
+package agileassignment;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,16 +20,12 @@ public class AddOrder extends javax.swing.JFrame {
      */
     public AddOrder() {
         initComponents();
-        //
-        //jtftype.setText("Rose");
-        //jtfprice.setText("8");
-        
-        //jtftotal.setText(t);
         
             jtftype.setEditable(false);
             jtfprice.setEditable(false);
             jtftotal.setEditable(false);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,7 +40,8 @@ public class AddOrder extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jlbTotal = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jtfalltotal = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,20 +59,24 @@ public class AddOrder extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jtftotal = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jtfdate = new javax.swing.JTextField();
-        jtftime = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jtbremove = new javax.swing.JButton();
         jtbconfirm = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jtfpostcode = new javax.swing.JTextField();
+        jtfaddress = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jtfdate = new javax.swing.JTextField();
+        jtftime = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,9 +86,15 @@ public class AddOrder extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 255, 0));
         jLabel7.setText("Total");
 
-        jlbTotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jlbTotal.setForeground(new java.awt.Color(51, 255, 0));
-        jlbTotal.setText("RM   0.00");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 255, 0));
+        jLabel8.setText("RM");
+
+        jtfalltotal.setEditable(false);
+        jtfalltotal.setBackground(new java.awt.Color(51, 51, 0));
+        jtfalltotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jtfalltotal.setForeground(new java.awt.Color(51, 255, 0));
+        jtfalltotal.setText("0.00");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -96,16 +104,20 @@ public class AddOrder extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jlbTotal)
-                .addGap(57, 57, 57))
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtfalltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jlbTotal))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfalltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -137,6 +149,7 @@ public class AddOrder extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("ABC 000001");
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setText("Yip Kin Lit");
 
@@ -220,23 +233,6 @@ public class AddOrder extends javax.swing.JFrame {
 
         jtftotal.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Date");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Time");
-
-        jtfdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfdateActionPerformed(evt);
-            }
-        });
-        jtfdate.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtfdateKeyPressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -256,17 +252,13 @@ public class AddOrder extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addGap(59, 59, 59)
+                            .addComponent(jLabel10))
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfprice)
                             .addComponent(jtfqty)
                             .addComponent(jtftotal)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(jtfdate)
-                            .addComponent(jtftime))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))))
                 .addGap(18, 18, 18))
         );
         jPanel4Layout.setVerticalGroup(
@@ -292,14 +284,6 @@ public class AddOrder extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jtftotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jtfdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jtftime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -312,11 +296,11 @@ public class AddOrder extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FlowerNo", "Price", "Qty", "Total", "Date", "Time"
+                "FlowerNo", "Price", "Qty", "Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -346,7 +330,7 @@ public class AddOrder extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jtbremove, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -356,21 +340,109 @@ public class AddOrder extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(17, 17, 17)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtbremove)
                     .addComponent(jtbconfirm))
                 .addContainerGap())
         );
 
-        jLabel13.setText("Flower No : 001 - Red Rose");
+        jLabel17.setText("Postcode");
 
-        jLabel14.setText("                   002 - Dark Rose");
+        jLabel18.setText("Address");
 
-        jLabel15.setText("                   003 - Yellow Rose");
+        jtfpostcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfpostcodeActionPerformed(evt);
+            }
+        });
 
-        jLabel16.setText("004 - Grass");
+        jtfaddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfaddressActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtfpostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfpostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtfaddress)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("DELIVERY", jPanel9);
+
+        jLabel11.setText("Date");
+
+        jLabel12.setText("Time");
+
+        jtfdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfdateActionPerformed(evt);
+            }
+        });
+
+        jtftime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtftimeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtfdate)
+                    .addComponent(jtftime, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtfdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtftime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("PICK UP", jPanel8);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("Please Select pickup or delievery");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -379,25 +451,17 @@ public class AddOrder extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel13)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel16))
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -422,9 +486,9 @@ public class AddOrder extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -457,28 +521,38 @@ public class AddOrder extends javax.swing.JFrame {
         
         
         
-        if(jtfno.getText().equals("")||jtfqty.getText().equals("")||jtfdate.getText().equals("")||jtftime.getText().equals("")){
+        if(jtfno.getText().equals("")||jtfqty.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Please fill in all the field");
         }
         else{
             DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
-        dtm.addRow(new String[] { jtfno.getText(), jtfprice.getText(), jtfqty.getText() , jtftotal.getText() , jtfdate.getText() , jtftime.getText() });
-
+        dtm.addRow(new String[] { jtfno.getText(), jtfprice.getText(), jtfqty.getText() , jtftotal.getText() });
+        
         JOptionPane.showMessageDialog(null, "Added to purchase");
+        //jtfalltotal.setText("abc");
+        
+        
+        
+        double total = 0;
+            for (int i = 0; i < jTable1.getRowCount(); i++){
+                double amount = Double.parseDouble((String) jTable1.getValueAt(i, 3).toString());
+                total += amount;
+                
+            }
+            jtfalltotal.setText(String.format("%.2f",total));
+            
+            
         
         }
-            
+        
+           
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtfnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfnoActionPerformed
         // TODO add your handling code here:
-      //  DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
-      //  int count;
-        
-       // dtm.removeRow();
-       //
+     
        
     }//GEN-LAST:event_jtfnoActionPerformed
 
@@ -502,18 +576,27 @@ public class AddOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_jtbremoveActionPerformed
 
     private void jtbconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtbconfirmActionPerformed
-        // TODO add your handling code here:
-        //JOptionPane.showMessageDialog(null, "confirm order");
         
-      //  DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
-
-     //   for (int i = 0; i < dm.getRowCount(); i++) {
-     //   for (int j = 0; j < dm.getColumnCount(); j++) {
-     //       dm.setValueAt("", i, j);
-     //   }
-       // JOptionPane.showConfirmDialog(null, "Confirm order?");
+        String date = jtfdate.getText();
+        String time = jtftime.getText();
+        String postcode = jtfpostcode.getText();
+        String address = jtfaddress.getText();
+        String method ;
+        
+        if(jtfdate.getText() != null || jtftime.getText() != null){
+            //method = "pick up at" ;
+            jtfpostcode.setText("");
+            jtfaddress.setText("");
+        }
+        else if (jtfpostcode.getText() != null || jtfaddress.getText() != null){
+            //method = "deliver to";
+            jtfdate.setText("");
+            jtftime.setText("");
+        }
+        
+        
        int dialogButton = JOptionPane.YES_NO_OPTION;
-            JOptionPane.showConfirmDialog (null, "Are you sure?","Confirm Order", dialogButton);
+            JOptionPane.showConfirmDialog (null, "Are you sure?" + date + time + postcode + address,"Confirm Order", dialogButton);
         if(dialogButton == JOptionPane.YES_OPTION) {
                 //System.exit(0);
                  DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
@@ -536,39 +619,89 @@ public class AddOrder extends javax.swing.JFrame {
         if(jtfno.getText().equals("001")){
             jtftype.setText("Red Rose");
             jtfprice.setText("8");
-            //if(jtfqty.getText().equals("1")){
-            //    jtftotal.setText("8");
-            //}
-            //else if(jtfqty.getText().equals("2")){
-            //    jtftotal.setText("16");
-            //}
+            
         }
     }//GEN-LAST:event_jtfnoKeyPressed
 
     private void jtfqtyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfqtyKeyPressed
         // TODO add your handling code here:
+        
+        double total = 0;
         if(jtfqty.getText().equals("1")){
-                jtftotal.setText("8");
+                int quantity = Integer.parseInt(jtfqty.getText());
+                double price = Double.parseDouble(jtfprice.getText());
+                total = quantity * price ;
+            
+                jtftotal.setText(String.format("%.2f",total));
             }
             else if(jtfqty.getText().equals("2")){
-                jtftotal.setText("16");
+                int quantity = Integer.parseInt(jtfqty.getText());
+                double price = Double.parseDouble(jtfprice.getText());
+                total = quantity * price ;
+            
+                jtftotal.setText(String.format("%.2f",total));
             }
             else if(jtfqty.getText().equals("100")){
                 JOptionPane.showMessageDialog(null, "quantity must be less than 100");
                 jtfqty.setText("");
             }
+        
+            //else if
+            /*
+            double total = 0;
+            
+            
+            if(jtfqty.getText().equals("1")){
+                int quantity = Integer.parseInt(jtfqty.getText());
+                double price = Double.parseDouble(jtfprice.getText());
+                total = quantity * price ;
+            
+                jtftotal.setText(String.format("%.2f",total));
+            }
+            /*
+            //String squantity = jtfqty.getText();
+            int quantity = Integer.parseInt(jtfqty.getText());
+            double price = Double.parseDouble(jtfprice.getText());
+            total = quantity * price ;
+            
+            jtftotal.setText(String.format("%.2f",total));
+            */
+            
     }//GEN-LAST:event_jtfqtyKeyPressed
 
     private void jtfdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfdateActionPerformed
         // TODO add your handling code here:
+        if(jtfdate.getText() != null){
+            jtfpostcode.setText("");
+            jtfaddress.setText("");
+        }
+        
     }//GEN-LAST:event_jtfdateActionPerformed
 
-    private void jtfdateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfdateKeyPressed
+    private void jtftimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtftimeActionPerformed
         // TODO add your handling code here:
-       // Date date = new Date();
-       // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-       // jtfDate.setText(dateFormat.format(date));
-    }//GEN-LAST:event_jtfdateKeyPressed
+        if(jtftime.getText() != null){
+            jtfpostcode.setText("");
+            jtfaddress.setText("");
+        }
+    }//GEN-LAST:event_jtftimeActionPerformed
+
+    private void jtfpostcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfpostcodeActionPerformed
+        // TODO add your handling code here:
+        if(jtfpostcode.getText() != null){
+          jtfdate.setText("");
+            jtftime.setText("");  
+        }
+        
+    }//GEN-LAST:event_jtfpostcodeActionPerformed
+
+    private void jtfaddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfaddressActionPerformed
+        // TODO add your handling code here:
+        if(jtfaddress.getText() != null){
+          jtfdate.setText("");
+            jtftime.setText("");  
+        }
+    }//GEN-LAST:event_jtfaddressActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,15 +745,15 @@ public class AddOrder extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -629,14 +762,19 @@ public class AddOrder extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel jlbTotal;
     private javax.swing.JButton jtbconfirm;
     private javax.swing.JButton jtbremove;
+    private javax.swing.JTextField jtfaddress;
+    private javax.swing.JTextField jtfalltotal;
     private javax.swing.JTextField jtfdate;
     private javax.swing.JTextField jtfno;
+    private javax.swing.JTextField jtfpostcode;
     private javax.swing.JTextField jtfprice;
     private javax.swing.JTextField jtfqty;
     private javax.swing.JTextField jtftime;

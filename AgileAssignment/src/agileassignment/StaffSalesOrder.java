@@ -5,9 +5,7 @@
  */
 package agileassignment;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -24,8 +22,8 @@ public class StaffSalesOrder extends javax.swing.JFrame {
      */
     public StaffSalesOrder() {
         initComponents();
-        showDate();
-        addRowToTable();
+        //showDate();
+       // addRowToTable();
         
     }
     
@@ -44,10 +42,10 @@ public class StaffSalesOrder extends javax.swing.JFrame {
     }
         public ArrayList PickUpList(){
             ArrayList<OrderList> list = new ArrayList<OrderList>();
-            OrderList ordList1 = new OrderList("OD00001","Kee Woi Chen","1/12/18");
-            OrderList ordList2 = new OrderList("OD00002","Tan Hooi Xin","1/12/18");
-            OrderList ordList3 = new OrderList("OD00003","E-Company","1/12/18");
-            OrderList ordList4 = new OrderList("OD00004","TARUC","1/12/18");
+            OrderList ordList1 = new OrderList("OD00001","Kee Woi Chen","1/12/2018");
+            OrderList ordList2 = new OrderList("OD00002","Tan Hooi Xin","1/12/2018");
+            OrderList ordList3 = new OrderList("OD00003","E-Company","2/12/2018");
+            OrderList ordList4 = new OrderList("OD00004","TARUC","2/12/2018");
             
             list.add(ordList1);
             list.add(ordList2);
@@ -57,28 +55,26 @@ public class StaffSalesOrder extends javax.swing.JFrame {
         }
         
         public void addRowToTable(){
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            ArrayList<OrderList> list = PickUpList();
-            Object rowData[] = new Object[5];
+        
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        ArrayList<OrderList> list = PickUpList();
+        Object rowData[] = new Object[5];
             
-            for(int i = 0; i < list.size(); i++){
-                rowData[0] = list.get(i).TransactionNo;
+        model.setRowCount(0);
+        for(int i=0; i<list.size(); i++){
+            if(jcbdate.getSelectedItem().toString().equals(list.get(i).CreatedOn)){
+             rowData[0] = list.get(i).TransactionNo;
                 rowData[1] = list.get(i).CustomerName;
                 rowData[2] = list.get(i).CreatedOn;
                 
 
                 model.addRow(rowData);
             }
+        }
             
         }
         
-        public void showDate(){
-        //Date date = new Date();
-        //SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
-        //jTextField1.setText(sf.format(date));
-        //jTextField1.setText("1/12/18");
-        //
-    }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,7 +138,7 @@ public class StaffSalesOrder extends javax.swing.JFrame {
             }
         });
 
-        jcbdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1/12/2018", "2/12/2018", "3/12/2018", "4/12/2018" }));
+        jcbdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "1/12/2018", "2/12/2018", "3/12/2018", "4/12/2018" }));
         jcbdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbdateActionPerformed(evt);
@@ -161,12 +157,14 @@ public class StaffSalesOrder extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(545, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbdate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(455, Short.MAX_VALUE))
+                        .addComponent(jcbdate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,18 +214,20 @@ public class StaffSalesOrder extends javax.swing.JFrame {
             if(value1.equals("OD00001")){
                 //JOptionPane.showMessageDialog(null, "go to 01");
                 String tran = "OD00001";
+                //String custname = "Kee Woi Chen";
                 SalesOrder salesOrder = new SalesOrder();
-                salesOrder.setTransaction(tran);
-                
+                salesOrder.setTransfer(tran);
+                //salesOrder.setTransfer(custname);
                 salesOrder.setVisible(true);
                 
             }
             else if(value1.equals("OD00002")){
                 //JOptionPane.showMessageDialog(null, "go to 02");
                 String tran = "OD00002";
+                //String custname = "Tan Hooi Xin";
                 SalesOrder salesOrder = new SalesOrder();
-                salesOrder.setTransaction(tran);
-                
+                salesOrder.setTransfer(tran);
+                //salesOrder.setTransfer(custname);
                 salesOrder.setVisible(true);
             }
                //JOptionPane.showMessageDialog(null, "boleh");
@@ -249,18 +249,20 @@ public class StaffSalesOrder extends javax.swing.JFrame {
             if(value1.equals("OD00001")){
                 //JOptionPane.showMessageDialog(null, "go to 01");
                 String tran = "OD00001";
+                //String custname = "Kee Woi Chen";
                 SalesOrder salesOrder = new SalesOrder();
-                salesOrder.setTransaction(tran);
-                
+                salesOrder.setTransfer(tran);
+                //salesOrder.setTransfer(custname);
                 salesOrder.setVisible(true);
                 
             }
             else if(value1.equals("OD00002")){
                 //JOptionPane.showMessageDialog(null, "go to 02");
                 String tran = "OD00002";
+                //String custname = "Tan Hooi Xin";
                 SalesOrder salesOrder = new SalesOrder();
-                salesOrder.setTransaction(tran);
-                
+                salesOrder.setTransfer(tran);
+                //salesOrder.setTransfer(custname);
                 salesOrder.setVisible(true);
             }
                //JOptionPane.showMessageDialog(null, "boleh");
@@ -268,15 +270,8 @@ public class StaffSalesOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jcbdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbdateActionPerformed
-        // TODO add your handling code here:
-        
-        if(jcbdate.getSelectedItem() == "1/12/2018"){
-            
-        }
-        else if(jcbdate.getSelectedItem() == "2/12/2018"){
-            
-        }
-        
+         
+        addRowToTable();
     }//GEN-LAST:event_jcbdateActionPerformed
 
     /**

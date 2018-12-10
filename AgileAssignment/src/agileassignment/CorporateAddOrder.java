@@ -135,7 +135,7 @@ public class CorporateAddOrder extends javax.swing.JFrame {
         }
        // creditlimit = creditlimit - amount;
        // jtfcreditlimit.setText(String.format("%.2f" , creditlimit));
-        
+        //
         
         
         jtfno.setText("");
