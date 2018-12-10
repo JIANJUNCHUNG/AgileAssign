@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Gin
+ * @author Gin-1
  */
 public class customizeBill extends javax.swing.JFrame {
 
