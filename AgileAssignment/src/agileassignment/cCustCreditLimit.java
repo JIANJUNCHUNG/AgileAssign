@@ -47,7 +47,7 @@ public class cCustCreditLimit extends javax.swing.JFrame {
     public ArrayList cCustList(){
         ArrayList<cCust> list = new ArrayList<cCust>();
         
-        cCust c1 = new cCust("ABC SDN BHD","JJ CHUNG", "012-7894560", 4000.00);
+        cCust c1 = new cCust("MYGIRL SDN BHD","JJ CHUNG", "012-7894560", 4000.00);
         cCust c2 = new cCust("AIDA SDN BHD","ANTHONY", "016-5123894", 5000.00);
         cCust c3 = new cCust("SIMEIQI SDN BHD","KIN LIT", "018-4567891", 4500.00);
         cCust c4 = new cCust("WENDA SDN BHD","DAILOU", "017-8791346", 3000.00);
