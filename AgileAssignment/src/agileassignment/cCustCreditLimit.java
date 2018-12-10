@@ -27,7 +27,7 @@ public class cCustCreditLimit extends javax.swing.JFrame {
         jtfcomName.setText("");
         jtfName.setText("");
         jtfpNumber.setText("");
-        jtfcreLimit.setText("");
+        
     }
     
     public class cCust{
@@ -75,7 +75,10 @@ public class cCustCreditLimit extends javax.swing.JFrame {
         }
     }
     
-    
+    public String cLimit(String limit){
+        String l = jcbLimit.getSelectedItem().toString();
+        return l;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,9 +97,9 @@ public class cCustCreditLimit extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jtfcomName = new javax.swing.JTextField();
         jtfpNumber = new javax.swing.JTextField();
-        jtfcreLimit = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jtfName = new javax.swing.JTextField();
+        jcbLimit = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jbtCancel = new javax.swing.JButton();
         jbtSubmit = new javax.swing.JButton();
@@ -128,6 +131,8 @@ public class cCustCreditLimit extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Name:");
 
+        jcbLimit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1000", "2000", "3000", "4000", "5000", " " }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,14 +151,13 @@ public class cCustCreditLimit extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtfName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(24, Short.MAX_VALUE))
+                                .addComponent(jtfName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtfcreLimit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jcbLimit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(24, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,7 +181,7 @@ public class cCustCreditLimit extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jtfpNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jtfcreLimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbLimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -259,7 +263,7 @@ public class cCustCreditLimit extends javax.swing.JFrame {
     private void jbtSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSubmitActionPerformed
         // TODO add your handling code here:
         
-        if(jtfcomName.getText().equals("")|| jtfName.getText().equals("") || jtfpNumber.getText().equals("") || jtfcreLimit.getText().equals("")){
+        if(jtfcomName.getText().equals("")|| jtfName.getText().equals("") || jtfpNumber.getText().equals("")){
             JOptionPane.showMessageDialog(null, "All field are required.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
@@ -269,9 +273,7 @@ public class cCustCreditLimit extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Name should less than 30 char", "Error", JOptionPane.ERROR_MESSAGE);
         else if(!jtfpNumber.getText().matches("([0]){1}([1]){1}([0-9]){1}-([0-9]){7}"))
             JOptionPane.showMessageDialog(null, "Wrong Phone Number format.Please enter again", "Error", JOptionPane.ERROR_MESSAGE);
-        else if(!jtfcreLimit.getText().matches("([0-5]){1}([0-9]){3}.([0-9]){2}"))
-            JOptionPane.showMessageDialog(null, "Credit Limit cannot more than RM5000.00", "Error",JOptionPane.ERROR_MESSAGE);
-        else
+        else 
             JOptionPane.showMessageDialog(null, "Credit Limit is set","RECORD ADDED", JOptionPane.INFORMATION_MESSAGE);
         
         Clear();
@@ -330,9 +332,9 @@ public class cCustCreditLimit extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbtCancel;
     private javax.swing.JButton jbtSubmit;
+    private javax.swing.JComboBox<String> jcbLimit;
     private javax.swing.JTextField jtfName;
     private javax.swing.JTextField jtfcomName;
-    private javax.swing.JTextField jtfcreLimit;
     private javax.swing.JTextField jtfpNumber;
     // End of variables declaration//GEN-END:variables
 }

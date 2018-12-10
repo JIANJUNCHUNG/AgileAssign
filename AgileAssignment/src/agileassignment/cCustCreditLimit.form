@@ -63,16 +63,15 @@
                                   <Component id="jLabel6" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jtfName" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace pref="24" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jtfcreLimit" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jcbLimit" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel4" min="-2" pref="132" max="-2" attributes="0"/>
@@ -102,7 +101,7 @@
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfpNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfcreLimit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbLimit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -157,8 +156,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfpNumber">
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfcreLimit">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -168,6 +165,23 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtfName">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcbLimit">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="1000"/>
+                <StringItem index="1" value="2000"/>
+                <StringItem index="2" value="3000"/>
+                <StringItem index="3" value="4000"/>
+                <StringItem index="4" value="5000"/>
+                <StringItem index="5" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
