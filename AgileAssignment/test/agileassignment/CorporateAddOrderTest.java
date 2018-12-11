@@ -45,7 +45,7 @@ public class CorporateAddOrderTest {
      */
     @Test
     public void testRemoveaction() {
-        //abcadedf
+        //abcadedfjojo
         //System.out.println("removeaction");
         //CorporateAddOrder instance = new CorporateAddOrder();
         //instance.removeaction();
