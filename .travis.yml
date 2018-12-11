@@ -1,3 +1,5 @@
 language : java
 sudo : required
-before_script : cd AgileAssignment
+before_script : 
+- cd AgileAssign
+ - rm - rf test
