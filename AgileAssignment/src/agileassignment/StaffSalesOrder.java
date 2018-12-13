@@ -29,9 +29,9 @@ public class StaffSalesOrder extends javax.swing.JFrame {
     
     public class OrderList{
         
-        private String TransactionNo;
-        private String CustomerName;
-        private String CreatedOn;
+        public String TransactionNo;
+        public String CustomerName;
+        public String CreatedOn;
         
         public OrderList(String TransactionNo, String CustomerName, String CreatedOn){
             this.TransactionNo = TransactionNo;

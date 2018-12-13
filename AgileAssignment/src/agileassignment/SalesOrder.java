@@ -16,6 +16,7 @@ public class SalesOrder extends javax.swing.JFrame {
     double sum = 0;
     
 
+    //
     /**
      * Creates new form SalesOrder
      */
