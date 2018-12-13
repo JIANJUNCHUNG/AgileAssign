@@ -23,6 +23,7 @@ public class StaffSalesOrder extends javax.swing.JFrame {
     public StaffSalesOrder() {
         initComponents();
         //showDate();
+        //
        // addRowToTable();
         
     }

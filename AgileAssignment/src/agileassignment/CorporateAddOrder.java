@@ -731,6 +731,20 @@ public class CorporateAddOrder extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public int [] addOneToArray(int [] qty){
+        int jqty = Integer.parseInt(jtfqty.getText());
+        //int length = qty.length;
+        int joutput[] = new int[jqty];
+        //int output[] = new int[length];
+        
+        for(int i=0; i<jqty ; i++){
+            joutput[i] = qty[i]+1;
+        }
+        //return output;
+        return joutput;
+    }
+
     private void jtfqtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfqtyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfqtyActionPerformed
